@@ -14,5 +14,6 @@ async fn get_metrics() -> impl IntoResponse {
 }
 
 async fn get_metric(Path(kind): Path<Kind>) -> impl IntoResponse {
-    kind.to_string();
+    //transformam Kind in json
+    serde_json::to_string(&kind).unwrap()
   }
